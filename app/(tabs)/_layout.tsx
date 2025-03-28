@@ -46,7 +46,7 @@ const TabLayout = () => {
                     flexDirection: 'row',
                 },
                 tabBarStyle: {
-                    backgroundColor: "#0f0D23",
+                    backgroundColor: "#26004d",
                     borderRadius: 50,
                     marginBottom: 30,
                     alignItems: 'center',

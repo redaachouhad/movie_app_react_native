@@ -40,10 +40,12 @@ const Index = () => {
                         <Text>Error: {moviesError?.message}</Text>
                     ):(
                         <View className={"flex-1 mt-5"}>
-                            <SearchBar
-                                onPress={() => router.push("/search")}
-                                placeholder={"Search"}
-                            />
+                            <View className={"my-4 bg-white rounded-full"} >
+                                <SearchBar
+                                    onPress={() => router.push("/search")}
+                                    placeholder={"Search"}
+                                />
+                            </View>
                             <>
                                 <Text className="text-white text-xl font-bold mt-5 mb-3">Latest Movies</Text>
                                 <FlatList
