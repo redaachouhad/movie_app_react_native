@@ -20,6 +20,23 @@ const MovieInfo = ({label, value}:MovieInfoProps )=>{
     );
 }
 
+const MovieInfoMapList = ({label, list}: { label: string, list:string[]})=>{
+    return (
+        <View className={"w-full mb-4 flex-col gap-2"}>
+            <Text className={"text-light-200 text-xl"}>{label}</Text>
+            <View className={"flex-row items-center justify-start gap-2"}>
+                {list.map((e, index)=>{
+                    return (
+                        <View key={index} className={"bg-[rgba(255,255,255,0.2)] p-1.5 rounded-md"}>
+                            <Text className={"text-white text-lg px-"}>{e}</Text>
+                        </View>
+                    )
+                })}
+            </View>
+        </View>
+    );
+}
+
 function formatDate(dateString: string) {
     const months = [
         "January", "February", "March", "April", "May", "June",
@@ -70,9 +87,7 @@ const MovieDetails = () => {
                         <MovieInfo label={"Release Date"} value={`${formatDate(movie?.release_date)} ( Worldwide )`} />
                         <MovieInfo label={"Status"} value={movie?.status} />
                     </View>
-                    <View className={"w-full mb-4"}>
-                        <MovieInfo label={"Genres"} value={movie?.genres.map((e:any)=>e?.name).join(" - ") || "N/A"} />
-                    </View>
+                    <MovieInfoMapList label={"Genres"} list={movie?.genres.map((e:any)=>e?.name)} />
                     <View className={"w-full mb-4"}>
                         <MovieInfo label={"Budget"} value={`$${movie?.budget / 1_000_000} million`} />
                     </View>
@@ -82,28 +97,20 @@ const MovieDetails = () => {
                     <View className={"w-full mb-4"}>
                         <MovieInfo label={"Production Companies"} value={movie?.production_companies.map((e:any)=>e?.name).join(" - ") || "N/A"} />
                     </View>
-                    {/*<View className={"w-full mb-4 flex-col gap-2"}>*/}
-                    {/*    <Text className={"text-light-200 text-xl"}>Label</Text>*/}
-                    {/*    <View className={"flex-row items-center justify-start gap-2"}>*/}
-                    {/*        <View className={"bg-[rgba(255,255,255,0.2)] p-1.5 rounded-md"}>*/}
-                    {/*            <Text className={"text-white text-lg px-"}>Adventure</Text>*/}
-                    {/*        </View>*/}
-                    {/*        <View className={"bg-[rgba(255,255,255,0.2)] p-1.5 rounded-md"}>*/}
-                    {/*            <Text className={"text-white text-lg px-"}>Adventure</Text>*/}
-                    {/*        </View>*/}
-                    {/*    </View>*/}
-                    {/*</View>*/}
-                    <TouchableOpacity
-                        onPress={()=>router.back()}
-                        className={"w-full flex-row justify-center items-center mt-5 bg-accent rounded-100 overflow-hidden p-2"} style={{borderRadius: 10}}>
-                        <Image source={icons.arrow} className={"rotate-180 size-10 font-bold"} tintColor={"white"} resizeMode={"contain"}/>
-                        <Text className={"text-white text-lg"}>Go Back</Text>
-                    </TouchableOpacity>
+                    <MovieInfoMapList label={"Hello"} list={movie?.production_companies.map((e:any)=>e?.name)} />
+
                 </View>
+
 
             </ScrollView>
                 )
             }
+            <TouchableOpacity
+                onPress={()=>router.back()}
+                className={"fixed bottom-10 mx-auto w-[80%] flex-row justify-center items-center mt-5 bg-accent rounded-100 overflow-hidden p-2"} style={{borderRadius: 10}}>
+                <Image source={icons.arrow} className={"rotate-180 size-10 font-bold"} tintColor={"white"} resizeMode={"contain"}/>
+                <Text className={"text-white text-lg"}>Go Back</Text>
+            </TouchableOpacity>
         </View>
     )
 }
