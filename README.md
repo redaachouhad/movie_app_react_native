@@ -1,5 +1,13 @@
 # Welcome to your Expo app 👋
 
+![Capture d’écran 2025-04-04 185741.png](assets/images/Capture%20d%E2%80%99%C3%A9cran%202025-04-04%20185741.png)
+
+![Capture d’écran 2025-04-04 185802.png](assets/images/Capture%20d%E2%80%99%C3%A9cran%202025-04-04%20185802.png)
+
+![Capture d’écran 2025-04-04 185825.png](assets/images/Capture%20d%E2%80%99%C3%A9cran%202025-04-04%20185825.png)
+
+
+
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
